@@ -6,29 +6,26 @@ from collections import OrderedDict as odict
 
 from pathlib import Path
 
-color_file = Path(__file__).parent / Path('material-colors.json')
-with color_file.open('r') as f:
-    material_colors = json.load(f)
-material_colors = odict([(c['name'], odict([(k['strength'], k['hex']) for k in c['shades']])) for c in material_colors['colors']])
 
+#CONFIG
 
-color_types = '''black
+xorg_color_types = '''black
 red
 green
 yellow
 blue
 magenta
 cyan
-white'''.split('\n')
+white'''
 
-material_color_types = [s if s else None for s in '''
+material_color_types = '''
 red
 light green
 amber
 indigo
 purple
 teal
-'''.split('\n')]
+'''
 
 default_strength = 700
 highlight_strength = 500
@@ -37,9 +34,24 @@ highlight_strength = 500
 invalid = '#ff00ff'
 foreground = '#222222'
 background = '#ffffff'
+
+
+#CODE
+
+color_file = Path(__file__).parent / Path('material-colors.json')
+with color_file.open('r') as f:
+    material_colors = json.load(f)
+material_colors = odict([(c['name'], odict([(k['strength'], k['hex']) for k in c['shades']])) for c in material_colors['colors']])
+
+
+
+
+xorg_color_types = xorg_color_types.split('\n')
+material_color_types = [s if s else None for s in material_color_types.split('\n')]
+
 colors = odict()
 
-n = len(color_types)
+n = len(xorg_color_types)
 for i, c in enumerate(material_color_types):
     if c is not None:
         default = material_colors[c][default_strength]
