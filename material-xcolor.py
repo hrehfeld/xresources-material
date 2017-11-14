@@ -34,12 +34,12 @@ purple
 teal
 '''
 
-default_strength = 700
-highlight_strength = 500
+default_strength = 800
+highlight_strength = 'A700'
 
 
 invalid = '#ff00ff'
-foreground = '#222222'
+foreground = material_colors['grey'][900]
 background = '#ffffff'
 
 
