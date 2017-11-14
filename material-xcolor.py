@@ -30,8 +30,8 @@ purple
 teal
 '''.split('\n')]
 
-default_strength = 900
-highlight_strength = 'A700'
+default_strength = 700
+highlight_strength = 500
 
 
 invalid = '#ff00ff'
