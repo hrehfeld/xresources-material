@@ -30,7 +30,7 @@ purple
 teal
 '''.split('\n')]
 
-default_strength = 800
+default_strength = 900
 highlight_strength = 'A700'
 
 
