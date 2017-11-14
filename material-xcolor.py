@@ -4,8 +4,10 @@ import json
 import string
 from collections import OrderedDict as odict
 
+from pathlib import Path
 
-with open('material-colors.json', 'r') as f:
+color_file = Path(__file__).parent / Path('material-colors.json')
+with color_file.open('r') as f:
     material_colors = json.load(f)
 material_colors = odict([(c['name'], odict([(k['strength'], k['hex']) for k in c['shades']])) for c in material_colors['colors']])
 
